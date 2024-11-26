@@ -43,83 +43,6 @@ botonRegistroIngreso.addEventListener("click", function(e) {
         });
 });
 
- 
-    // Swal.fire({
-    //     title: "Good job!",
-    //     text: "You clicked the button!",
-    //     icon: "success"
-    //   });
-
-
-// prueba de renderizacion con datos que viene del back
-// quemar datos usando mock
-// llamando la funcion que va al api a buscar usuarios
-
-// buscarUsuario().then(function (respuesta) {
-//     let fila = document.getElementById("fila");
-
-//     // Limpiar el contenido de "fila" antes de agregar nuevos elementos
-//     fila.innerHTML = "";
-
-//     respuesta.forEach(function(usuario) {
-//         let columna = document.createElement("div");
-//         columna.classList.add("col-md-8", "mb-4");  // Espaciado entre columnas y filas
-
-//         let tarjeta = document.createElement("div");
-//         tarjeta.classList.add("card", "h-100", "p-3", "shadow", "text-center");
-
-//         let nombreCard = document.createElement("h3");
-//         nombreCard.textContent = usuario.nombres;
-
-//         tarjeta.appendChild(nombreCard);
-//         columna.appendChild(tarjeta);
-//         fila.appendChild(columna);
-//     });
-// });
-
-// Simula la respuesta del backend con datos reales enviados desde el formulario
-// BuscarIngreso().then(function (respuesta) {
-//     let fila = document.getElementById("fila2");
-
-//     // Limpiar el contenido de "fila" antes de agregar nuevos elementos
-//     fila.innerHTML = "";
-
-//     respuesta.forEach(function (ingreso) {
-//         let columna = document.createElement("div");
-//         columna.classList.add("col-md-8", "mb-4");
-
-//         let tarjeta = document.createElement("div");
-//         tarjeta.classList.add("card", "h-100", "p-3", "shadow", "text-center");
-
-//         // Crear y agregar la descripción
-//         let descripcionCard = document.createElement("h3");
-//         descripcionCard.textContent = ingreso.descripcion;
-//         descripcionCard.classList.add("card-title");
-
-//         // Crear y agregar el valor
-//         let valorCard = document.createElement("p");
-//         valorCard.textContent = `Valor ingreso: $${ingreso.valor}`;
-//         valorCard.classList.add("card-text");
-
-//         // Crear y agregar la fecha
-//         let fechaCard = document.createElement("p");
-//         fechaCard.textContent = `Fecha: ${ingreso.fecha}`;
-//         fechaCard.classList.add("card-text");
-
-//         // Agregar los elementos a la tarjeta
-//         tarjeta.appendChild(descripcionCard);
-//         tarjeta.appendChild(valorCard);
-//         tarjeta.appendChild(fechaCard);
-
-//         // Agregar la tarjeta a la columna y luego a la fila
-//         columna.appendChild(tarjeta);
-//         fila.appendChild(columna);
-//     });
-// });
-
-
-
-
 
 BuscarIngreso().then(function (respuesta) {
     let fila = document.getElementById("fila2");
@@ -130,7 +53,7 @@ BuscarIngreso().then(function (respuesta) {
     // Crear el título para los usuarios
     let tituloUsuarios = document.createElement("h2");
     tituloUsuarios.textContent = "INGRESO";
-    tituloUsuarios.classList.add("text-center", "mb-4"); // Opcional: agrega clases para el estilo
+    tituloUsuarios.classList.add("text-center", "mb-4"); 
 
     // Agregar el título a la fila
     fila.appendChild(tituloUsuarios);

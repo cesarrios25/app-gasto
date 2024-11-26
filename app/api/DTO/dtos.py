@@ -14,6 +14,7 @@ class UsuarioDTOPeticion(BaseModel): #Petición para guardar los datos en la BD
 class UsuarioDTORespuesta(BaseModel): #Petición para traer los datos de la BD
     id: int
     nombres: str
+    fechaRegistro:date
     ciudad: str
     metaAhorro: float
     class config:
@@ -69,4 +70,3 @@ class IngresoDTORespuesta(BaseModel):  # Respuesta para traer los datos de un in
     fecha: date
     class Config:
         orm_mode = True
-        

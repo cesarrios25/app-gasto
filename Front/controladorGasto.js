@@ -21,7 +21,7 @@ botonRegistroGasto.addEventListener("click", function(e) {
         categoria: categoriaGastoUsuario.value,
         valor: valorGastoUsuario.value,
         fecha: fechaGastoUsuario.value,
-        idUsuario: idUsuarioGasto.value
+        id_usuario: idUsuarioGasto.value
     };
 
     console.log(objetoEnvioDatosGasto);
@@ -48,39 +48,6 @@ botonRegistroGasto.addEventListener("click", function(e) {
         });
 });
 
- 
-    // Swal.fire({
-    //     title: "Good job!",
-    //     text: "You clicked the button!",
-    //     icon: "success"
-    //   });
-
-
-// prueba de renderizacion con datos que viene del back
-// quemar datos usando mock
-// llamando la funcion que va al api a buscar usuarios
-
-// buscarUsuario().then(function (respuesta) {
-//     let fila = document.getElementById("fila");
-
-//     // Limpiar el contenido de "fila" antes de agregar nuevos elementos
-//     fila.innerHTML = "";
-
-//     respuesta.forEach(function(usuario) {
-//         let columna = document.createElement("div");
-//         columna.classList.add("col-md-8", "mb-4");  // Espaciado entre columnas y filas
-
-//         let tarjeta = document.createElement("div");
-//         tarjeta.classList.add("card", "h-100", "p-3", "shadow", "text-center");
-
-//         let nombreCard = document.createElement("h3");
-//         nombreCard.textContent = usuario.nombres;
-
-//         tarjeta.appendChild(nombreCard);
-//         columna.appendChild(tarjeta);
-//         fila.appendChild(columna);
-//     });
-// });
 
 // Simula la respuesta del backend con datos reales enviados desde el formulario
 BuscarGasto().then(function (respuesta) {
@@ -92,7 +59,7 @@ BuscarGasto().then(function (respuesta) {
     // Crear el título para los gastos
     let tituloGastos = document.createElement("h2");
     tituloGastos.textContent = "GASTOS";
-    tituloGastos.classList.add("text-center", "mb-4"); // Opcional: agrega clases para el estilo
+    tituloGastos.classList.add("text-center", "mb-4"); 
 
     // Agregar el título a la fila
     fila.appendChild(tituloGastos);

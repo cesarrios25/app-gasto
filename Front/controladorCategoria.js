@@ -46,40 +46,6 @@ botonRegistroCategoria.addEventListener("click", function(e) {
         });
 });
 
- 
-    // Swal.fire({
-    //     title: "Good job!",
-    //     text: "You clicked the button!",
-    //     icon: "success"
-    //   });
-
-
-// prueba de renderizacion con datos que viene del back
-// quemar datos usando mock
-// llamando la funcion que va al api a buscar usuarios
-
-// buscarUsuario().then(function (respuesta) {
-//     let fila = document.getElementById("fila");
-
-//     // Limpiar el contenido de "fila" antes de agregar nuevos elementos
-//     fila.innerHTML = "";
-
-//     respuesta.forEach(function(usuario) {
-//         let columna = document.createElement("div");
-//         columna.classList.add("col-md-8", "mb-4");  // Espaciado entre columnas y filas
-
-//         let tarjeta = document.createElement("div");
-//         tarjeta.classList.add("card", "h-100", "p-3", "shadow", "text-center");
-
-//         let nombreCard = document.createElement("h3");
-//         nombreCard.textContent = usuario.nombres;
-
-//         tarjeta.appendChild(nombreCard);
-//         columna.appendChild(tarjeta);
-//         fila.appendChild(columna);
-//     });
-// });
-
 // Simula la respuesta del backend con datos reales enviados desde el formulario
 BuscarCategoria().then(function (respuesta) {
     let fila = document.getElementById("fila4");
@@ -90,7 +56,7 @@ BuscarCategoria().then(function (respuesta) {
     // Crear el título para los gastos
     let tituloCategoria = document.createElement("h2");
     tituloCategoria.textContent = "CATEGORÍA";
-    tituloCategoria.classList.add("text-center", "mb-4"); // Clases opcionales para estilo
+    tituloCategoria.classList.add("text-center", "mb-4"); 
 
     // Agregar el título a la fila  
     fila.appendChild(tituloCategoria);
@@ -104,7 +70,7 @@ BuscarCategoria().then(function (respuesta) {
 
         // Crear y agregar el nombre del gasto
         let nombreCard = document.createElement("h3");
-        nombreCard.textContent = categoria.nombre; // Asegúrate de que 'nombre' esté en tu respuesta
+        nombreCard.textContent = categoria.nombre; 
         nombreCard.classList.add("card-title");
 
         // Crear y agregar la descripción

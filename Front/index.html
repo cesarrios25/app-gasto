@@ -1,337 +1,168 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sistema contable</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <style>
-        body {
-            background-image: url('https://images.pexels.com/photos/6801648/pexels-photo-6801648.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2');
-            background-size: cover; 
-            background-position: center; 
-            background-repeat: no-repeat; 
-            background-attachment: fixed; 
-            padding: 20px;
-            color: #fff; 
-            font-family: 'Arial', sans-serif; 
-            height: 100vh;
-        }
-        .form-container {
-            background-color: rgba(0, 0, 0, 0.077);
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-            margin-bottom: 20px;
-        }
-        h1 {
-            width: 650px;
-            padding-bottom: 15px;
-            margin: 0 auto;
-            color: white;
-            text-shadow: 2px 2px 0 black;
-            background-color: rgba(0, 0, 0, 0.82);
-        }
-        label {
-            color: #000;
-        }
-        .cards {
-            width: 650px;
-            margin: 0 auto;
-            margin-bottom: 8px;
-            background-color: rgba(128, 128, 128, 0.932);
-        }
-        .cards button {
-            color: #000;
-            font-weight: bold;
-            font-size: 18px;
-        }
-        .accordion {
-            margin-top: 20px;
-        }
-        .back {
-            position: absolute;
-            top: 10px; 
-            left: 10px; 
-        }
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Sistema contable</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+        <link rel="stylesheet" href="./style.css">
+    </head>
 
-        .back a {
-            color: white; 
-            text-decoration: none; 
-            font-size: 15px; 
-            font-family: Arial, sans-serif;
-            background-color: rgba(0, 0, 0, 0.6);
-            padding: 5px 10px; 
-            border-radius: 5px; 
-            transition: 0.4s ease-in-out; 
-        }
+    <body>
+        <div class="back">
+            <a href="./home.html">Atras</a>
+        </div>
 
-        .back a:hover {
-            background-color: rgba(255, 255, 255, 0.2);
-        }
-/* estilo de las cards de usuarios registrdos */
+    <div class="container">
+        <h1 class="text-center text-white">Sistema contabilidad</h1>
+        <div class="accordion" id="formAccordion">
+            <div class="cards">
+                <div class="card-header" id="headingUsuario">
+                    <h5 class="mb-0">
+                        <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseUsuario" aria-expanded="false" aria-controls="collapseUsuario">Registro de Usuario  </button>
+                    </h5>
+                </div>
+                <div id="collapseUsuario" class="collapse" aria-labelledby="headingUsuario" data-parent="#formAccordion">
+                    <div class="card-body form-container">
+                        <form action="/usuario" method="POST">
+                            <div class="form-group">
+                                <label for="nombresUsuario">Nombres</label>
+                                <input type="text" class="form-control" name="nombres" id="nombresUsuario" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="fechaRegistro">Fecha de registro</label>
+                                <input type="date" class="form-control" name="fechaRegistro" id="fechaRegistro" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="ciudad">Ubicación</label>
+                                <input type="text" class="form-control" name="ciudad" id="ciudadUsuario" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="metaAhorroUsuario">Meta de Ahorro</label>
+                                <input type="number" class="form-control" name="metaAhorro" id="metaAhorroUsuario" step="0.01" required>
+                            </div>
+                            <button id="btnRegistrarUsuario" type="submit" class="btn btn-secondary">Registrar</button>
+                    </div>
+                </div>
+            </div>
 
-.container-cards_users {
-    background-color: rgba(0, 0, 0, 0.572);
-    padding: 20px;
-    box-sizing: border-box;
-    margin: 50px auto;
-    width: 100%;
-    height: 300vh;
-}
+        
+            <div class="cards">
+                <div class="card-header" id="headingIngreso">
+                    <h5 class="mb-0">
+                        <button class="btn btn-link" data-toggle="collapse" data-target="#collapseIngreso" aria-expanded="true" aria-controls="collapseIngreso">Registrar Ingreso</button>
+                    </h5>
+                </div>
+                <div id="collapseIngreso" class="collapse" aria-labelledby="headingIngreso" data-parent="#formAccordion">
+                    <div class="card-body form-container">
+                        <form action="/ingreso" method="POST">
+                            <div class="form-group">
+                                <label for="descripcionIngreso">Descripción Ingreso</label>
+                                <input type="text" class="form-control" name="descripcion" id="descripcionIngreso" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="valorIngreso">Valor</label>
+                                <input type="number" class="form-control" name="valor" id="valorIngreso" step="0.01" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="fechaIngreso">Fecha</label>
+                                <input type="date" class="form-control" name="fecha" id="fechaIngreso" required>
+                            </div>
+                            <button id="btnRegistrarIngreso" type="submit" class="btn btn-secondary">Registrar</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
 
-.row {
-    display: flex;
-    justify-content: center;
-    gap: 20px; /* Espaciado entre columnas */
-    width: 100%;
-    height: 260px;
-    flex-wrap: wrap;
-}
+        
+            <div class="cards">
+                <div class="card-header" id="headingGasto">
+                    <h5 class="mb-0">
+                        <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseGasto" aria-expanded="false" aria-controls="collapseGasto">Registrar Gasto</button>
+                    </h5>
+                </div>
+                <div id="collapseGasto" class="collapse" aria-labelledby="headingGasto" data-parent="#formAccordion">
+                    <div class="card-body form-container">
+                        <form action="/gasto" method="POST">
+                            <div class="form-group">
+                                <label for="descripcion">Descripción Gasto</label>
+                                <input type="text" class="form-control" name="descripcion" id="descripcionGasto" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="categoria">Categoría</label>
+                                <input type="text" class="form-control" name="categoria" id="categoriaGasto" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="valor">Valor</label>
+                                <input type="number" class="form-control" name="valor" id="valorGasto" step="0.01" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="fecha">Fecha</label>
+                                <input type="date" class="form-control" name="fecha" id="fechaGasto" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="idUsuario">ID de Usuario</label>
+                                <input type="number" class="form-control" name="idUsuario" id="idUsuarioGasto" required>
+                            </div>
+                            <button id="btnRegistrarGasto" type="submit" class="btn btn-secondary">Registrar</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
 
-.col-md-4 {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    /* align-items: center; */
-    max-width: 210px;
-    height: 100px;
-}
-
-.card {
-    width: 200px;
-    height: 180px !important;
-    background-color: #f8f9fa;
-    border: 1px solid #dee2e6;
-    border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    display: flex;
-    flex-direction: column;
-    /* justify-content: center;
-    align-items: center; */
-    text-align: center;
-    padding: 15px;
-    transition: transform 0.3s, box-shadow 0.3s;
-}
-
-.card h3 {
-    color: #000;
-    font-weight: bold;
-    font-size: 22px;
-    margin-bottom: 10px;
-}
-
-.card:hover {
-    transform: scale(1.05);
-    box-shadow: 0 8px 10px rgba(0, 0, 0, 0.2);
-}
-
-.card .card-title {
-    font-size: 18px;
-    font-weight: bold;
-    margin-bottom: 10px;
-    color: #000;
-}
-
-.card .card-text {
-    font-size: 14px;
-    color: #000;
-}
-
-.card input,
-.card select,
-.card button {
-    width: 90%;
-    padding: 10px;
-    font-size: 14px;
-    border: 1px solid #dee2e6;
-    border-radius: 5px;
-    margin: 5px 0;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-.card button {
-    background-color: #007bff;
-    color: #fff;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-.card button:hover {
-    background-color: #0056b3;
-}
-
-    </style>
-</head>
-
-<body>
-    <div class="back">
-        <a href="./home.html">Atras</a>
+        
+            <div class="cards">
+                <div class="card-header" id="headingCategoria">
+                    <h5 class="mb-0">
+                        <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseCategoria" aria-expanded="false" aria-controls="collapseCategoria">Registrar Categoría</button>
+                    </h5>
+                </div>
+                <div id="collapseCategoria" class="collapse" aria-labelledby="headingCategoria" data-parent="#formAccordion">
+                    <div class="card-body form-container">
+                        <form action="/categoria" method="POST">
+                            <div class="form-group">
+                                <label for="nombreCategoria">Nombre categoria</label>
+                                <input type="text" class="form-control" name="nombre" id="nombreCategoria" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="descripcionCategoria">Descripción</label>
+                                <input type="text" class="form-control" name="descripcion" id="descripcionCategoria" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="valorCategoria">Valor</label>
+                                <input type="number" class="form-control" name="valor" id="valorCategoria" step="0.01" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="fechaCategoria">Fecha</label>
+                                <input type="date" class="form-control" name="fecha" id="fechaCategoria" required>
+                            </div>
+                            <button id="btnRegistrarCategoria" type="submit" class="btn btn-secondary">Registrar</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 
-<div class="container">
-    <h1 class="text-center text-white">Sistema contabilidad</h1>
-
-    <div class="accordion" id="formAccordion">
-
-        
-        <div class="cards">
-            <div class="card-header" id="headingUsuario">
-                <h5 class="mb-0">
-                    <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseUsuario" aria-expanded="false" aria-controls="collapseUsuario">
-                        Registro de Usuario
-                    </button>
-                </h5>
-            </div>
-            <div id="collapseUsuario" class="collapse" aria-labelledby="headingUsuario" data-parent="#formAccordion">
-                <div class="card-body form-container">
-                    <form action="/usuario" method="POST">
-                        <div class="form-group">
-                            <label for="nombresUsuario">Nombres</label>
-                            <input type="text" class="form-control" name="nombres" id="nombresUsuario" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="fechaRegistro">Fecha de registro</label>
-                            <input type="date" class="form-control" name="fechaRegistro" id="fechaRegistro" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="ciudad">Ubicación</label>
-                            <input type="text" class="form-control" name="ciudad" id="ciudadUsuario" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="metaAhorroUsuario">Meta de Ahorro</label>
-                            <input type="number" class="form-control" name="metaAhorro" id="metaAhorroUsuario" step="0.01" required>
-                        </div>
-                        <button id="btnRegistrarUsuario" type="submit" class="btn btn-secondary">Registrar</button>
-                </div>
-            </div>
+    <section class="container-cards_users">
+        <div class="row">
+            <div id="fila" class= "col-md-4 p-5"></div>
+            <div id="fila2" class= "col-md-4 p-5"></div>
+            <div id="fila3" class= "col-md-4 p-5"></div>
+            <div id="fila4" class= "col-md-4 p-5"></div>
         </div>
+    </section>
 
-        
-        <div class="cards">
-            <div class="card-header" id="headingIngreso">
-                <h5 class="mb-0">
-                    <button class="btn btn-link" data-toggle="collapse" data-target="#collapseIngreso" aria-expanded="true" aria-controls="collapseIngreso">
-                        Registrar Ingreso
-                    </button>
-                </h5>
-            </div>
-            <div id="collapseIngreso" class="collapse" aria-labelledby="headingIngreso" data-parent="#formAccordion">
-                <div class="card-body form-container">
-                    <form action="/ingreso" method="POST">
-                        <div class="form-group">
-                            <label for="descripcionIngreso">Descripción Ingreso</label>
-                            <input type="text" class="form-control" name="descripcion" id="descripcionIngreso" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="valorIngreso">Valor</label>
-                            <input type="number" class="form-control" name="valor" id="valorIngreso" step="0.01" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="fechaIngreso">Fecha</label>
-                            <input type="date" class="form-control" name="fecha" id="fechaIngreso" required>
-                        </div>
-                        <button id="btnRegistrarIngreso" type="submit" class="btn btn-secondary">Registrar</button>
-                    </form>
-                </div>
-            </div>
-        </div>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="controladorusuario.js" type="module"></script>
+    <script src="./controladorIngreso.js" type="module"></script>
+    <script src="./controladorGasto.js" type="module"></script>
+    <script src="./controladorCategoria.js" type="module"></script>
 
-        
-        <div class="cards">
-            <div class="card-header" id="headingGasto">
-                <h5 class="mb-0">
-                    <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseGasto" aria-expanded="false" aria-controls="collapseGasto">
-                        Registrar Gasto
-                    </button>
-                </h5>
-            </div>
-            <div id="collapseGasto" class="collapse" aria-labelledby="headingGasto" data-parent="#formAccordion">
-                <div class="card-body form-container">
-                    <form action="/gasto" method="POST">
-                        <div class="form-group">
-                            <label for="descripcion">Descripción Gasto</label>
-                            <input type="text" class="form-control" name="descripcion" id="descripcionGasto" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="categoria">Categoría</label>
-                            <input type="text" class="form-control" name="categoria" id="categoriaGasto" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="valor">Valor</label>
-                            <input type="number" class="form-control" name="valor" id="valorGasto" step="0.01" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="fecha">Fecha</label>
-                            <input type="date" class="form-control" name="fecha" id="fechaGasto" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="idUsuario">ID de Usuario</label>
-                            <input type="number" class="form-control" name="idUsuario" id="idUsuarioGasto" required>
-                        </div>
-                        <button id="btnRegistrarGasto" type="submit" class="btn btn-secondary">Registrar</button>
-                    </form>
-                </div>
-            </div>
-        </div>
-
-        
-        <div class="cards">
-            <div class="card-header" id="headingCategoria">
-                <h5 class="mb-0">
-                    <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseCategoria" aria-expanded="false" aria-controls="collapseCategoria">
-                        Registrar Categoría
-                    </button>
-                </h5>
-            </div>
-            <div id="collapseCategoria" class="collapse" aria-labelledby="headingCategoria" data-parent="#formAccordion">
-                <div class="card-body form-container">
-                    <form action="/categoria" method="POST">
-                        <div class="form-group">
-                            <label for="nombreCategoria">Nombre</label>
-                            <input type="text" class="form-control" name="nombre" id="nombreCategoria" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="descripcionCategoria">Descripción</label>
-                            <input type="text" class="form-control" name="descripcion" id="descripcionCategoria" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="valorCategoria">Valor</label>
-                            <input type="number" class="form-control" name="valor" id="valorCategoria" step="0.01" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="fechaCategoria">Fecha</label>
-                            <input type="date" class="form-control" name="fecha" id="fechaCategoria" required>
-                        </div>
-                        <button id="btnRegistrarCategoria" type="submit" class="btn btn-secondary">Registrar</button>
-                    </form>
-                </div>
-            </div>
-        </div>
-
-    </div>
-</div>
-
-<section class="container-cards_users">
-    <div class="row">
-        <div id="fila" class= "col-md-4 p-5"></div>
-        <div id="fila2" class= "col-md-4 p-5"></div>
-        <div id="fila3" class= "col-md-4 p-5"></div>
-        <div id="fila4" class= "col-md-4 p-5"></div>
-    </div>
-</section>
-
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-<script src="controladorusuario.js" type="module"></script>
-<script src="./controladorIngreso.js" type="module"></script>
-<script src="./controladorGasto.js" type="module"></script>
-<script src="./controladorCategoria.js" type="module"></script>
-
-
-</body>
+    </body>
 </html>
 
 

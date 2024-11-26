@@ -19,7 +19,7 @@ botonRegistroUsuario.addEventListener("click", function(evento) {
         nombres: nombreUsuario.value,
         fechaRegistro: fechaRegistro.value,
         ciudad: ciudadUsuario.value,
-        metaAhorro: parseFloat(metaAhorroUsuario.value)  // Convertir a número flotante
+        metaAhorro: parseFloat(metaAhorroUsuario.value)
     };
 
     console.log(objetoEnvioDatosUsuario);
@@ -56,7 +56,7 @@ buscarUsuario().then(function (respuesta) {
     // Crear el título para los usuarios
     let tituloUsuarios = document.createElement("h2");
     tituloUsuarios.textContent = "USUARIOS";
-    tituloUsuarios.classList.add("text-center", "mb-4"); // Opcional: agrega clases para el estilo
+    tituloUsuarios.classList.add("text-center", "mb-4"); 
 
     // Agregar el título a la fila
     fila.appendChild(tituloUsuarios);
@@ -71,7 +71,12 @@ buscarUsuario().then(function (respuesta) {
         // Crear y agregar el nombre
         let nombreCard = document.createElement("h3");
         nombreCard.textContent = usuario.nombres;
-        nombreCard.classList.add("card-title");
+        nombreCard.classList.add("card-title-card");
+
+        // fecha
+        let fechaCard = document.createElement("p");
+        fechaCard.textContent = `Registro: ${usuario.fechaRegistro} `;
+        fechaCard.classList.add("card-text");
 
         // Crear y agregar la ubicación
         let ubicacionCard = document.createElement("p");
@@ -85,6 +90,7 @@ buscarUsuario().then(function (respuesta) {
 
         // Agregar los elementos a la tarjeta
         tarjeta.appendChild(nombreCard);
+        tarjeta.appendChild(fechaCard);
         tarjeta.appendChild(ubicacionCard);
         tarjeta.appendChild(metaAhorroCard);
 
@@ -93,31 +99,3 @@ buscarUsuario().then(function (respuesta) {
         fila.appendChild(columna);
     });
 });
-
-
-
-
-// let usuarios = [
-//     {id: 100, nombres: "juan jose", metaAhorro: 200000},
-//     {id: 98, nombres: "javier", metaAhorro: 129000},
-//     {id: 34, nombres: "jimene", metaAhorro: 23322}
-// ]
-
-//recorrer el areglo de datos del mock
-
-// let fila = document.getElementById("fila")
-// usuarios.forEach(function(usuario){
-//     console.log(usuario)
-//     let columna = document.createElement("div")
-//     columna.classList.add("col-md-4")
-
-//     let tarjeta = document.createElement("div")
-//     tarjeta.classList.add("card", "h-100", "p-5", "shadow" )
-
-//     let nombreCard = document.createElement("h3")
-//     nombreCard.textContent=usuario.nombres
-
-//     tarjeta.appendChild(nombreCard)
-//     columna.appendChild(tarjeta)
-//     fila.appendChild(columna)
-// })
