@@ -46,45 +46,20 @@ botonRegistroUsuario.addEventListener("click", function(evento) {
         });
 });
 
-    
-    // Swal.fire({
-    //     title: "Good job!",
-    //     text: "You clicked the button!",
-    //     icon: "success"
-    //   });
-
-
-//prueba de renderizacion con datos que viene del back
-// quemar datos usando mock
-// llamando la funcion que va al api a buscar usuarios
-
-// buscarUsuario().then(function (respuesta) {
-//     let fila = document.getElementById("fila");
-
-//     // Limpiar el contenido de "fila" antes de agregar nuevos elementos
-//     fila.innerHTML = "";
-
-//     respuesta.forEach(function(usuario) {
-//         let columna = document.createElement("div");
-//         columna.classList.add("col-md-8", "mb-4");  // Espaciado entre columnas y filas
-
-//         let tarjeta = document.createElement("div");
-//         tarjeta.classList.add("card", "h-100", "p-3", "shadow", "text-center");
-
-//         let nombreCard = document.createElement("h3");
-//         nombreCard.textContent = usuario.nombres;
-
-//         tarjeta.appendChild(nombreCard);
-//         columna.appendChild(tarjeta);
-//         fila.appendChild(columna);
-//     });
-// });
-// Simula la respuesta del backend con datos reales enviados desde el formulario
+ 
 buscarUsuario().then(function (respuesta) {
     let fila = document.getElementById("fila");
 
     // Limpiar el contenido de "fila" antes de agregar nuevos elementos
     fila.innerHTML = "";
+
+    // Crear el título para los usuarios
+    let tituloUsuarios = document.createElement("h2");
+    tituloUsuarios.textContent = "USUARIOS";
+    tituloUsuarios.classList.add("text-center", "mb-4"); // Opcional: agrega clases para el estilo
+
+    // Agregar el título a la fila
+    fila.appendChild(tituloUsuarios);
 
     respuesta.forEach(function (usuario) {
         let columna = document.createElement("div");
@@ -118,7 +93,6 @@ buscarUsuario().then(function (respuesta) {
         fila.appendChild(columna);
     });
 });
-
 
 
 

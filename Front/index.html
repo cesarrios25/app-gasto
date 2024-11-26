@@ -71,63 +71,96 @@
         }
 /* estilo de las cards de usuarios registrdos */
 
-        .container-cards_users {
-            display: flex;
-            justify-content: center;
-            width: 100%;
-            margin: 80px auto;
-            background-color: rgba(0, 0, 0, 0.572);
-        }
+.container-cards_users {
+    background-color: rgba(0, 0, 0, 0.572);
+    padding: 20px;
+    box-sizing: border-box;
+    margin: 50px auto;
+    width: 100%;
+    height: 300vh;
+}
 
-        #fila {
-            display: grid; 
-            grid-template-columns: repeat(4, 1fr); 
-            gap: 8px; 
-            width: 100%;
-            max-width: 1200px; 
-            margin: 0 auto; 
-            padding: 10px;
-            box-sizing: border-box;
-        }
+.row {
+    display: flex;
+    justify-content: center;
+    gap: 20px; /* Espaciado entre columnas */
+    width: 100%;
+    height: 260px;
+    flex-wrap: wrap;
+}
 
-        .card {
-            width: 250px; 
-            height: 400px; 
-            background-color: #f8f9fa; 
-            border: 1px solid #dee2e6; 
-            border-radius: 10px; 
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            padding: 15px;
-            transition: transform 0.3s, box-shadow 0.3s;
-            font-size: 12px; 
-        }
-        .card h3 {
-            color: #000;
-            font-weight: bold;
-            font-size: 24px;
-        }
+.col-md-4 {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    /* align-items: center; */
+    max-width: 210px;
+    height: 100px;
+}
 
-        .card:hover {
-            transform: scale(1.05); 
-            box-shadow: 0 8px 10px rgba(0, 0, 0, 0.2); 
-        }
+.card {
+    width: 200px;
+    height: 180px !important;
+    background-color: #f8f9fa;
+    border: 1px solid #dee2e6;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center;
+    align-items: center; */
+    text-align: center;
+    padding: 15px;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
 
-        .card .card-title {
-            font-size: 22px; 
-            font-weight: bold;
-            margin-bottom: 10px;
-            color: #000; 
-        }
+.card h3 {
+    color: #000;
+    font-weight: bold;
+    font-size: 22px;
+    margin-bottom: 10px;
+}
 
-        .card .card-text {
-            font-size: 13px; 
-            color: #000; 
-        }
+.card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 10px rgba(0, 0, 0, 0.2);
+}
+
+.card .card-title {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #000;
+}
+
+.card .card-text {
+    font-size: 14px;
+    color: #000;
+}
+
+.card input,
+.card select,
+.card button {
+    width: 90%;
+    padding: 10px;
+    font-size: 14px;
+    border: 1px solid #dee2e6;
+    border-radius: 5px;
+    margin: 5px 0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.card button {
+    background-color: #007bff;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.card button:hover {
+    background-color: #0056b3;
+}
+
     </style>
 </head>
 
@@ -158,7 +191,7 @@
                             <input type="text" class="form-control" name="nombres" id="nombresUsuario" required>
                         </div>
                         <div class="form-group">
-                            <label for="fechaRegistro">Fecha de Nacimiento</label>
+                            <label for="fechaRegistro">Fecha de registro</label>
                             <input type="date" class="form-control" name="fechaRegistro" id="fechaRegistro" required>
                         </div>
                         <div class="form-group">
@@ -185,9 +218,9 @@
             </div>
             <div id="collapseIngreso" class="collapse" aria-labelledby="headingIngreso" data-parent="#formAccordion">
                 <div class="card-body form-container">
-                    <form action="/register_ingreso" method="POST">
+                    <form action="/ingreso" method="POST">
                         <div class="form-group">
-                            <label for="descripcionIngreso">Descripción</label>
+                            <label for="descripcionIngreso">Descripción Ingreso</label>
                             <input type="text" class="form-control" name="descripcion" id="descripcionIngreso" required>
                         </div>
                         <div class="form-group">
@@ -215,26 +248,26 @@
             </div>
             <div id="collapseGasto" class="collapse" aria-labelledby="headingGasto" data-parent="#formAccordion">
                 <div class="card-body form-container">
-                    <form action="/register_gasto" method="POST">
+                    <form action="/gasto" method="POST">
                         <div class="form-group">
-                            <label for="descripcionGasto">Descripción</label>
+                            <label for="descripcion">Descripción Gasto</label>
                             <input type="text" class="form-control" name="descripcion" id="descripcionGasto" required>
                         </div>
                         <div class="form-group">
-                            <label for="categoriaGasto">Categoría</label>
+                            <label for="categoria">Categoría</label>
                             <input type="text" class="form-control" name="categoria" id="categoriaGasto" required>
                         </div>
                         <div class="form-group">
-                            <label for="valorGasto">Valor</label>
+                            <label for="valor">Valor</label>
                             <input type="number" class="form-control" name="valor" id="valorGasto" step="0.01" required>
                         </div>
                         <div class="form-group">
-                            <label for="fechaGasto">Fecha</label>
+                            <label for="fecha">Fecha</label>
                             <input type="date" class="form-control" name="fecha" id="fechaGasto" required>
                         </div>
                         <div class="form-group">
-                            <label for="idUsuarioGasto">ID de Usuario</label>
-                            <input type="number" class="form-control" name="id_usuario" id="idUsuarioGasto" required>
+                            <label for="idUsuario">ID de Usuario</label>
+                            <input type="number" class="form-control" name="idUsuario" id="idUsuarioGasto" required>
                         </div>
                         <button id="btnRegistrarGasto" type="submit" class="btn btn-secondary">Registrar</button>
                     </form>
@@ -253,7 +286,7 @@
             </div>
             <div id="collapseCategoria" class="collapse" aria-labelledby="headingCategoria" data-parent="#formAccordion">
                 <div class="card-body form-container">
-                    <form action="/register_categoria" method="POST">
+                    <form action="/categoria" method="POST">
                         <div class="form-group">
                             <label for="nombreCategoria">Nombre</label>
                             <input type="text" class="form-control" name="nombre" id="nombreCategoria" required>
@@ -282,6 +315,9 @@
 <section class="container-cards_users">
     <div class="row">
         <div id="fila" class= "col-md-4 p-5"></div>
+        <div id="fila2" class= "col-md-4 p-5"></div>
+        <div id="fila3" class= "col-md-4 p-5"></div>
+        <div id="fila4" class= "col-md-4 p-5"></div>
     </div>
 </section>
 
@@ -290,6 +326,11 @@
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 <script src="controladorusuario.js" type="module"></script>
+<script src="./controladorIngreso.js" type="module"></script>
+<script src="./controladorGasto.js" type="module"></script>
+<script src="./controladorCategoria.js" type="module"></script>
+
+
 </body>
 </html>
 
